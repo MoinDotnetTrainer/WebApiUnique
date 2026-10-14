@@ -25,11 +25,22 @@ namespace WebApiUnique.Controllers
         [HttpGet("GetEmp")]
         public IActionResult GetEMp()
         {
+
+            // In real time 
+            // we never get the data from table , Joins , group , Union , Where , isnull
+            // from tables , 1500 lines of code in sql
+            // Linq , Writing complex are very queries
+            // What could be the sol --> Sql 1500 lines of code here in my app
+            // best is Store Procedures
+            // Ef core also aloows us to SP , Raw sql
             try
             {
                 var res = _db.Employees.AsNoTracking().ToList();
+                var res1 = (from s in _db.Employees where s.Dept=="IT" select s).ToList();
                 // performce 
                 return Ok(res);
+
+                // LINQ SYntax , EF core also supports linq syntax
             }
             catch (Exception ex)
             {
