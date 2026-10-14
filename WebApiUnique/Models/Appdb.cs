@@ -11,5 +11,6 @@ namespace WebApiUnique.Models
 
         public DbSet<Users> Users { get; set; }
         public DbSet<Books> Books { get; set; }
+        public DbSet<Emp> Employees { get; set; } // define entity , table
     }
 }

@@ -44,6 +44,31 @@ namespace WebApiUnique.Migrations
                     b.ToTable("Books");
                 });
 
+            modelBuilder.Entity("WebApiUnique.Models.Emp", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Dept")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EMail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmpName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("tblEmp");
+                });
+
             modelBuilder.Entity("WebApiUnique.Models.Users", b =>
                 {
                     b.Property<int>("Id")
